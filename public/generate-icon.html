@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>生成图标</title>
+</head>
+<body>
+    <canvas id="iconCanvas" width="256" height="256" style="border: 1px solid #ccc;"></canvas>
+    <br>
+    <button onclick="downloadIcon()">下载PNG图标</button>
+    
+    <script>
+        const canvas = document.getElementById('iconCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // 设置背景
+        ctx.fillStyle = '#1890FF';
+        ctx.fillRect(0, 0, 256, 256);
+        
+        // 绘制圆角矩形
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.roundRect(64, 80, 128, 96, 16);
+        ctx.fill();
+        
+        // 绘制文本线条
+        ctx.fillStyle = '#1890FF';
+        ctx.fillRect(80, 96, 96, 8);
+        ctx.fillRect(80, 112, 64, 8);
+        ctx.fillRect(80, 128, 80, 8);
+        ctx.fillRect(80, 144, 48, 8);
+        
+        // 绘制状态指示器
+        ctx.fillStyle = '#52C41A';
+        ctx.beginPath();
+        ctx.arc(200, 120, 16, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // 绘制装饰线条
+        ctx.fillStyle = 'white';
+        ctx.fillRect(48, 64, 160, 16);
+        ctx.fillRect(48, 176, 160, 16);
+        
+        function downloadIcon() {
+            const link = document.createElement('a');
+            link.download = 'icon.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // 添加roundRect polyfill
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+    </script>
+</body>
+</html> 
