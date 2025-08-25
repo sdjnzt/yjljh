@@ -335,8 +335,18 @@ const AppLayout: React.FC = () => {
           overflow: 'auto'
         }}
       >
-        <div className="logo">
-          {collapsed ? '渔家里' : '渔家里京杭假日酒店管理系统'}
+        <div className="logo" style={{ 
+          fontSize: collapsed ? '16px' : '14px', 
+          fontWeight: 'bold',
+          padding: '16px',
+          textAlign: 'center',
+          color: '#fff',
+          borderBottom: '1px solid rgba(255,255,255,0.1)',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}>
+          {collapsed ? '渔家里' : '渔家里酒店管理系统'}
         </div>
         <Menu
           theme="dark"
@@ -377,8 +387,8 @@ const AppLayout: React.FC = () => {
                 height: 64,
               }}
             />
-            <div style={{ fontSize: '18px', fontWeight: 'bold' }}>
-              渔家里京杭假日酒店管理系统
+            <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
+              渔家里酒店管理系统
             </div>
           </div>
           

@@ -463,7 +463,7 @@ const DataStorage: React.FC = () => {
           监控存储设备状态、管理数据备份、执行数据清理等存储管理功能
         </Text>
       </div>
-
+      
       <Card>
         <Tabs defaultActiveKey="overview" type="card">
           <Tabs.TabPane tab="系统概览" key="overview">
@@ -477,8 +477,8 @@ const DataStorage: React.FC = () => {
                     prefix={<HddOutlined />}
                     valueStyle={{ color: '#1890ff' }}
                   />
-                </Card>
-              </Col>
+          </Card>
+        </Col>
               <Col span={6}>
                 <Card>
                   <Statistic
@@ -487,8 +487,8 @@ const DataStorage: React.FC = () => {
                     prefix={<CloudOutlined />}
                     valueStyle={{ color: '#52c41a' }}
                   />
-                </Card>
-              </Col>
+          </Card>
+        </Col>
               <Col span={6}>
                 <Card>
                   <Statistic
@@ -497,8 +497,8 @@ const DataStorage: React.FC = () => {
                     prefix={<HddOutlined />}
                     valueStyle={{ color: '#722ed1' }}
                   />
-                </Card>
-              </Col>
+          </Card>
+        </Col>
               <Col span={6}>
                 <Card>
                   <Statistic
@@ -508,8 +508,8 @@ const DataStorage: React.FC = () => {
                     valueStyle={{ color: usageRate > 90 ? '#ff4d4f' : usageRate > 80 ? '#faad14' : '#52c41a' }}
                     suffix="%"
                   />
-                </Card>
-              </Col>
+          </Card>
+        </Col>
             </Row>
 
             {/* 存储使用趋势 */}
@@ -517,14 +517,14 @@ const DataStorage: React.FC = () => {
               <Col span={16}>
                 <Card title="存储使用趋势" extra={<Button type="link">查看详情</Button>}>
                   <ReactECharts option={storageTrendOptions} style={{ height: 300 }} />
-                </Card>
-              </Col>
+          </Card>
+        </Col>
               <Col span={8}>
                 <Card title="存储类型分布">
                   <ReactECharts option={storageTypeOptions} style={{ height: 300 }} />
-                </Card>
-              </Col>
-            </Row>
+          </Card>
+        </Col>
+      </Row>
 
             {/* 操作按钮 */}
             <Card style={{ marginBottom: 0 }}>
@@ -567,7 +567,7 @@ const DataStorage: React.FC = () => {
             />
           </Tabs.TabPane>
         </Tabs>
-      </Card>
+          </Card>
 
       {/* 创建备份弹窗 */}
       <Modal
